@@ -5,7 +5,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | Skill | Version | Last Updated |
 |-------|---------|--------------|
 | ab-testing | 2.0.0 | 2026-05-05 |
-| ad-creative | 2.6.0 | 2026-07-10 |
+| ad-creative | 2.8.0 | 2026-07-14 |
 | ai-seo | 2.2.0 | 2026-07-09 |
 | analytics | 2.0.0 | 2026-05-05 |
 | aso | 2.0.0 | 2026-05-05 |
@@ -37,9 +37,9 @@ Current versions of all skills. Agents can compare against local versions to che
 | paywalls | 2.0.0 | 2026-05-05 |
 | popups | 2.0.0 | 2026-05-05 |
 | pricing | 2.0.1 | 2026-06-16 |
-| product-marketing | 2.0.0 | 2026-05-05 |
+| product-marketing | 2.1.0 | 2026-07-16 |
 | programmatic-seo | 2.0.0 | 2026-05-05 |
-| prospecting | 1.0.0 | 2026-05-26 |
+| prospecting | 1.1.0 | 2026-07-13 |
 | public-relations | 1.0.0 | 2026-06-10 |
 | referrals | 2.0.0 | 2026-05-05 |
 | revops | 2.0.0 | 2026-05-05 |
@@ -50,9 +50,29 @@ Current versions of all skills. Agents can compare against local versions to che
 | site-architecture | 2.0.0 | 2026-05-05 |
 | sms | 1.0.0 | 2026-05-21 |
 | social | 2.2.0 | 2026-07-09 |
-| video | 2.0.1 | 2026-05-18 |
+| video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.8.12 (2026-07-16)
+
+- **product-marketing** (2.0.0 → 2.1.0): the context document now carries its own **version history**. `.agents/product-marketing.md` gets a `Document version:` header (v1, v2 …) and a `## Changelog` section at the bottom — a newest-first, dated, one-line-per-revision paper trail of *what changed and why*. The update flow now reads the current version and recent changelog on open, and on save bumps the version, updates `Last updated`, and prepends a new changelog entry naming the sections touched and the reason (never rewriting past entries; skipped only for pure typo fixes). Since this doc is the shared context every other marketing skill reads, the changelog makes positioning/ICP changes traceable across a project — you can see how the positioning evolved and what a downstream skill was generating against. New eval (id 7) covers the version-bump + prepend-changelog behavior on a repositioning update.
+
+### 2.8.11 (2026-07-14)
+
+- **video** (2.0.1 → 2.1.0): added **reverse-engineering a viral edit into a reusable edit spec** (the tool-agnostic decomposition behind "copy any viral edit" — pattern from Arcads' skill, whose Omni generation model is proprietary/MCP-gated; we build only the decomposition, credited). New `references/edit-anatomy.md`: pull the reference with watch-video (visual/multimodal to read frames + caption style + cut timing) or social-fetch, extract the edit anatomy beat by beat across nine dimensions (shot/framing, cut rhythm/cuts-per-second, on-screen text, caption style, motion/punch-ins, b-roll/overlays, sound design, the first-2s hook, pacing curve), and output a per-beat **beat sheet** table plus a **style summary** of the 3–5 signature moves that make the edit recognizable (patterns over instance-logging). Includes the review-once gate (approve the beat sheet — on-screen text + scene-change placement — before executing in Remotion/Hyperframes, CapCut, or an AI restyle tool) and a hard originality guardrail (copy the editing grammar applied to your own footage/message, never the reference's footage, script, voiceover, or music). SKILL.md adds a Reverse-Engineer a Viral Edit workflow and 'copy this edit,' 'match this video style,' 'reverse-engineer this video,' 'edit like this reference' triggers. New eval (id 7). Closes #456.
+
+### 2.8.10 (2026-07-14)
+
+- **ad-creative** (2.7.0 → 2.8.0): added **AirDrop** as a fourth surface in the iOS-native reveal video ad family (`references/imessage-video-ads.md`, alongside iMessage / ChatGPT / Apple Notes; format popularized by Shiv Sakhuja / Gooseworks' goose-video Airdrop Ads, re-expressed originally — their runtime is MIT but the recipe is private, so this is original craft). The one interaction-native format in the family: the hook is an **incoming AirDrop request** and the **Accept tap is the reveal** — a translucent AirDrop card (sender device name, preview thumbnail, red Decline / blue Accept) from the receiver's POV, where iOS's own accept/decline choice is a built-in micro-conversion beat. New `### AirDrop Reveal` subsection: the preview thumbnail as the hook that must earn the tap, sender-name casting (relatable human name reads native; brand-as-sender reads like an ad), the transfer progress-ring as the signature motion, the AirDrop swoosh sound (not iMessage tritones) with the same CC0-Apple + trade-dress caveat, receiver-POV-default vs sender-POV-flex, and the family grounding/disclosure rules (a dramatization of a share, never a real endorsement). Updates the H1, intro, surface-selection table, and choosing-signal line to four surfaces. SKILL.md pointer names AirDrop and adds the 'AirDrop ad' trigger. New eval (id 11).
+
+### 2.8.9 (2026-07-13)
+
+- **prospecting** (1.0.0 → 1.1.0): added a **fourth branch — Demand-signal discovery (find your first customers)**, the early-stage motion that finds first customers / design partners / beta users from recent public pain-demand-timing signals rather than firmographic list-building (re-expressed from the open-source `first-customer-finder` Codex skill, Kappaemme/MIT, credited; extended with our live-recency tooling). New `references/demand-signals.md`: how the branch differs from list-building (starts from a described problem, sources public discourse, wins on 10 strong evidence-backed matches over coverage), a product brief gate, the five signal query buckets (explicit demand / pain / workaround / switching / timing) with our tooling edge called out (last30days for Reddit/HN/X/web recency, social-fetch to read original threads, scraping/Firecrawl/Browserbase over snippets, deep-research, competitor-profiling, customer-research), a public-only source mix, a **demand-fit scoring rubric** (pain 25% / product fit 25% / timing 20% / reachability 15% / evidence quality 15%, 0-100 with bands — distinct from the ICP-fit Hot/Warm/Cold), prospect stages (high intent / problem aware / trigger present / potential fit), a per-prospect evidence ledger, manual-only source-based openers (never auto-send), the evidence-report structure (verdict → ICP → top prospect → shortlist → repeated patterns → 7-day manual outreach plan → limits), and the honesty rules (a cited signal is the entry ticket; label 'potential customer based on public signals,' never 'will buy'). SKILL.md adds the branch to the Pick-the-Branch table + deep-dive pointers and 'find my first customers,' 'early adopters,' 'design partners,' 'beta users,' 'who has this problem' triggers. Also closes two **compliance-guardrail gaps** across all branches: no data brokers / leaked datasets, and never target or infer sensitive/protected traits (health, financial hardship, political belief, sexuality, religion). New eval (id 7) covers branch selection, signal mining, demand-fit scoring, and the never-auto-send rule. Closes #447.
+
+### 2.8.8 (2026-07-12)
+
+- **ad-creative** (2.6.0 → 2.7.0): added the **creative review page** — a shareable, self-contained HTML artifact that presents generated concepts for a client or stakeholder to review and pick (the visual upgrade to `INDEX.md`; pattern reverse-engineered from a real agency creative-approval page, re-expressed originally). New `assets/creative-review-template.html`: one file, inline CSS+JS, no build or dependencies, driven entirely by a `DATA` object — renders concept tabs (each a strategic angle), a pixel-accurate in-feed Instagram/Facebook preview with a whitelist-handle toggle, a labeled frame-by-frame storyboard (tap to jump), selectable headline variations that overlay the preview, primary text, destination/CTA/offer, optional rollout mechanics, and a required grounding disclosure; frames render real images (URL / relative path / data URI) or styled label+prompt placeholders for concepts not yet rendered. New `references/creative-review-page.md`: when to produce one, the full data model, the frame-storyboard-as-carousel-arc link to `carousel-frameworks.md`, the hard grounding rule (every concept discloses what's real; illustrative proof is labeled illustrative — never launder fiction as fact), and how to populate/verify/deliver (open locally, host on any static host, or hand off the file). SKILL.md adds a Creative Review Page output-format section, a Mode 3 pointer, and 'creative review page' + 'present ad creative for approval' triggers. New eval (id 10) covers template use over markdown, narrative-job frame labels, and the grounding disclosure. Browser-verified: concept switching, platform/handle toggles, and frame navigation all render correctly.
 
 ### 2.8.7 (2026-07-10)
 
