@@ -7,7 +7,7 @@ Product analytics platform for tracking user behavior and retention.
 | Integration | Available | Notes |
 |-------------|-----------|-------|
 | API | ✓ | Ingestion API, Query API, Data Export |
-| MCP | - | Not available |
+| MCP | ✓ | Official hosted server at `https://mcp.mixpanel.com/mcp` (EU and IN regions have their own hosts); OAuth, or a service account for headless use; an org admin must enable it ([docs](https://docs.mixpanel.com/docs/mcp)), checked 2026-10-27 |
 | CLI | ✓ | [mixpanel.js](../clis/mixpanel.js) |
 | SDK | ✓ | JavaScript, iOS, Android, Python, etc. |
 
@@ -149,3 +149,26 @@ mixpanel.track('Feature Used', {
 - analytics
 - ab-testing
 - onboarding
+
+### Select the project's API region
+
+Set `MIXPANEL_REGION` to your existing project's region: `us` (default), `eu`,
+or `in`. One setting selects the documented ingestion, query, and raw-export
+API families consistently:
+
+| Region | Ingestion | Query | Export |
+|--------|-----------|-------|--------|
+| `us` | `api.mixpanel.com` | `mixpanel.com` | `data.mixpanel.com` |
+| `eu` | `api-eu.mixpanel.com` | `eu.mixpanel.com` | `data-eu.mixpanel.com` |
+| `in` | `api-in.mixpanel.com` | `in.mixpanel.com` | `data-in.mixpanel.com` |
+
+```bash
+MIXPANEL_REGION=eu node tools/clis/mixpanel.js track event \
+  --distinct-id owned-test-user --event 'Owned test event' --dry-run
+```
+
+Unknown regions fail before any request. Dry runs use the selected hosts and
+mask credentials as before. Authentication, payloads, and response parsing are
+unchanged. Match the region in your Mixpanel project settings; selecting a host
+does not move a project or establish a data-residency guarantee. See the
+[official API overview](https://docs.mixpanel.com/reference/overview).

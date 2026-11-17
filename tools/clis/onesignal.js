@@ -15,6 +15,17 @@ if ((!APP_ID) && rawArgs.length > 0) {
   process.exit(1)
 }
 
+
+function requestSignal() {
+  const raw = args['timeout-ms'] ?? '120000'
+  const ms = Number(raw)
+  if (typeof raw !== 'string' || !/^\d+$/.test(raw) || !Number.isSafeInteger(ms) || ms < 1 || ms > 600000) {
+    throw new Error('--timeout-ms must be an integer from 1 to 600000')
+  }
+  return AbortSignal.timeout(ms)
+}
+
+
 async function api(method, path, body) {
   const headers = {
     'Authorization': `Key ${REST_API_KEY}`,
@@ -24,7 +35,7 @@ async function api(method, path, body) {
   if (args['dry-run']) {
     return { _dry_run: true, method, url: `${BASE_URL}${path}`, headers: { ...headers, Authorization: '***' }, body: body || undefined }
   }
-  const res = await fetch(`${BASE_URL}${path}`, {
+  const res = await fetch(`${BASE_URL}${path}`, { signal: requestSignal(),
     method,
     headers,
     body: body ? JSON.stringify(body) : undefined,
@@ -69,6 +80,10 @@ async function main() {
     case 'notifications':
       switch (sub) {
         case 'send': {
+          const targetingFlags = ['segment', 'emails', 'player-ids', 'aliases'].filter(name => args[name] !== undefined)
+          if (targetingFlags.length > 1) {
+            throw new Error('Use only one audience option: --segment, --emails, --player-ids, or --aliases')
+          }
           const channel = args.channel || (args.emails ? 'email' : 'push')
           if (!['push', 'email', 'sms'].includes(channel)) { result = { error: '--channel must be push, email, or sms' }; break }
           if (args.emails && channel !== 'email') { result = { error: '--emails requires the email channel' }; break }
@@ -99,6 +114,9 @@ async function main() {
             try {
               payload.include_aliases = JSON.parse(args.aliases)
             } catch {
+              payload.include_aliases = { external_id: args.aliases.split(',') }
+            }
+            if (!payload.include_aliases || typeof payload.include_aliases !== 'object' || Array.isArray(payload.include_aliases)) {
               payload.include_aliases = { external_id: args.aliases.split(',') }
             }
           } else {
@@ -141,6 +159,10 @@ async function main() {
           if (!name) { result = { error: '--name required' }; break }
           let filters
           try { filters = args.filters ? JSON.parse(args.filters) : [{ field: 'session_count', relation: '>', value: '0' }] } catch { result = { error: 'Invalid JSON in --filters' }; break }
+          if (!Array.isArray(filters) || filters.length < 1 || filters.length > 200 ||
+              filters.some(filter => !filter || typeof filter !== 'object' || Array.isArray(filter))) {
+            throw new Error('--filters must be an array of 1–200 filter or operator objects')
+          }
           result = await api('POST', `/api/v1/apps/${APP_ID}/segments`, { name, filters })
           break
         }
@@ -250,6 +272,7 @@ async function main() {
       }
   }
 
+  if (result?.error && rawArgs.length > 0) process.exitCode = 1
   console.log(JSON.stringify(result, null, 2))
 }
 

@@ -27,6 +27,9 @@ Anyone — including tool makers and partners — may contribute content that na
 |---------|----------|-------|
 | ◆ Converly | Conversion tracking / attribution | [converly.md](integrations/converly.md) |
 | ◆ Ploy | AI website & growth platform | [ploy.md](integrations/ploy.md) |
+| ◆ AIsa | SEO, search & social data | [aisa.md](integrations/aisa.md) |
+| ◆ Omnia | AI search visibility (AEO) | [omnia.md](integrations/omnia.md) |
+| ◆ Livestorm | Webinars & virtual events | [livestorm.md](integrations/livestorm.md) |
 <!-- PARTNERS:END -->
 
 <!-- The table above is generated from partners.json — run `node scripts/sync-partners.mjs`. -->
@@ -37,60 +40,66 @@ Anyone — including tool makers and partners — may contribute content that na
 
 | Tool | Category | API | MCP | CLI | SDK | Guide |
 |------|----------|:---:|:---:|:---:|:---:|-------|
-| ◆ converly | Conversion Tracking | ✓ | ✓ | ✓ | - | [converly.md](integrations/converly.md) |
+| ◆ converly | Conversion Tracking | ✓ | ✓ | ✓ | ✓ | [converly.md](integrations/converly.md) |
 | ◆ ploy | Website | ✓ | - | ✓ | - | [ploy.md](integrations/ploy.md) |
+| ◆ aisa | SEO / Data APIs | ✓ | ✓ | ✓ | - | [aisa.md](integrations/aisa.md) |
 | ga4 | Analytics | ✓ | ✓ | [✓](clis/ga4.js) | ✓ | [ga4.md](integrations/ga4.md) |
-| mixpanel | Analytics | ✓ | - | [✓](clis/mixpanel.js) | ✓ | [mixpanel.md](integrations/mixpanel.md) |
-| amplitude | Analytics | ✓ | - | [✓](clis/amplitude.js) | ✓ | [amplitude.md](integrations/amplitude.md) |
-| posthog | Analytics | ✓ | - | ✓ | ✓ | [posthog.md](integrations/posthog.md) |
+| mixpanel | Analytics | ✓ | ✓ | [✓](clis/mixpanel.js) | ✓ | [mixpanel.md](integrations/mixpanel.md) |
+| amplitude | Analytics | ✓ | ✓ | [✓](clis/amplitude.js) | ✓ | [amplitude.md](integrations/amplitude.md) |
+| posthog | Analytics | ✓ | ✓ | ✓ | ✓ | [posthog.md](integrations/posthog.md) |
 | segment | Analytics | ✓ | - | [✓](clis/segment.js) | ✓ | [segment.md](integrations/segment.md) |
 | adobe-analytics | Analytics | ✓ | - | [✓](clis/adobe-analytics.js) | ✓ | [adobe-analytics.md](integrations/adobe-analytics.md) |
 | plausible | Analytics | ✓ | - | [✓](clis/plausible.js) | - | [plausible.md](integrations/plausible.md) |
 | google-search-console | SEO | ✓ | - | [✓](clis/google-search-console.js) | ✓ | [google-search-console.md](integrations/google-search-console.md) |
-| semrush | SEO | ✓ | - | [✓](clis/semrush.js) | - | [semrush.md](integrations/semrush.md) |
-| ahrefs | SEO | ✓ | - | [✓](clis/ahrefs.js) | - | [ahrefs.md](integrations/ahrefs.md) |
+| semrush | SEO | ✓ | ✓ | [✓](clis/semrush.js) | - | [semrush.md](integrations/semrush.md) |
+| ahrefs | SEO | ✓ | ✓ | [✓](clis/ahrefs.js) | - | [ahrefs.md](integrations/ahrefs.md) |
 | dataforseo | SEO | ✓ | - | [✓](clis/dataforseo.js) | ✓ | [dataforseo.md](integrations/dataforseo.md) |
 | keywords-everywhere | SEO | ✓ | - | [✓](clis/keywords-everywhere.js) | - | [keywords-everywhere.md](integrations/keywords-everywhere.md) |
 | rankparse | SEO | ✓ | ✓ | [✓](clis/rankparse.js) | - | [rankparse.md](integrations/rankparse.md) |
+| omnia | AEO | ✓ | ✓ | - | - | [omnia.md](integrations/omnia.md) |
+| cloro | AEO | ✓ | ✓ | [✓](clis/cloro.js) | - | [cloro.md](integrations/cloro.md) |
 | clearbit | Data Enrichment (legacy) | ✓ | - | [✓](clis/clearbit.js) | ✓ | [clearbit.md](integrations/clearbit.md) |
 | apollo | Data Enrichment | ✓ | ✓ | [✓](clis/apollo.js) | - | [apollo.md](integrations/apollo.md) |
 | zoominfo | Data Enrichment | ✓ | ✓ | [✓](clis/zoominfo.js) | - | [zoominfo.md](integrations/zoominfo.md) |
 | clay | Data Enrichment | ✓ | ✓ | [✓](clis/clay.js) | - | [clay.md](integrations/clay.md) |
 | fullenrich | Data Enrichment | ✓ | ✓ | - | - | [fullenrich.md](integrations/fullenrich.md) |
 | leadmagic | Data Enrichment | ✓ | ✓ | ✓ | - | [leadmagic.md](integrations/leadmagic.md) |
+| rowbound | Data Enrichment | - | ✓ | ✓ | - | [rowbound.md](integrations/rowbound.md) |
 | supermetrics | Data Aggregation | ✓ | ✓ | [✓](clis/supermetrics.js) | - | [supermetrics.md](integrations/supermetrics.md) |
 | coupler | Data Aggregation | ✓ | ✓ | [✓](clis/coupler.js) | - | [coupler.md](integrations/coupler.md) |
 | hubspot | CRM | ✓ | ✓ | ✓ | ✓ | [hubspot.md](integrations/hubspot.md) |
-| salesforce | CRM | ✓ | - | ✓ | ✓ | [salesforce.md](integrations/salesforce.md) |
+| salesforce | CRM | ✓ | ✓ | ✓ | ✓ | [salesforce.md](integrations/salesforce.md) |
 | close | CRM | ✓ | ✓ | [✓](clis/close.js) | - | [close.md](integrations/close.md) |
 | attio | CRM | ✓ | ✓ | - | ✓ | [attio.md](integrations/attio.md) |
 | stripe | Payments | ✓ | ✓ | ✓ | ✓ | [stripe.md](integrations/stripe.md) |
 | paddle | Payments | ✓ | - | [✓](clis/paddle.js) | ✓ | [paddle.md](integrations/paddle.md) |
+| agentaos | Payments | ✓ | ✓ | ✓ | ✓ | [agentaos.md](integrations/agentaos.md) |
 | rewardful | Referral | ✓ | - | [✓](clis/rewardful.js) | - | [rewardful.md](integrations/rewardful.md) |
-| tolt | Referral | ✓ | - | [✓](clis/tolt.js) | - | [tolt.md](integrations/tolt.md) |
+| tolt | Referral | ✓ | ✓ | [✓](clis/tolt.js) | - | [tolt.md](integrations/tolt.md) |
 | dub-co | Links | ✓ | - | [✓](clis/dub.js) | ✓ | [dub-co.md](integrations/dub-co.md) |
 | mention-me | Referral | ✓ | - | [✓](clis/mention-me.js) | - | [mention-me.md](integrations/mention-me.md) |
-| partnerstack | Affiliate | ✓ | - | [✓](clis/partnerstack.js) | - | [partnerstack.md](integrations/partnerstack.md) |
+| partnerstack | Affiliate | ✓ | ✓ | [✓](clis/partnerstack.js) | - | [partnerstack.md](integrations/partnerstack.md) |
 | mailchimp | Email | ✓ | ✓ | [✓](clis/mailchimp.js) | ✓ | [mailchimp.md](integrations/mailchimp.md) |
-| customer-io | Email | ✓ | - | [✓](clis/customer-io.js) | ✓ | [customer-io.md](integrations/customer-io.md) |
+| customer-io | Email | ✓ | ✓ | [✓](clis/customer-io.js) | ✓ | [customer-io.md](integrations/customer-io.md) |
 | sendgrid | Email | ✓ | - | [✓](clis/sendgrid.js) | ✓ | [sendgrid.md](integrations/sendgrid.md) |
 | resend | Email | ✓ | ✓ | [✓](clis/resend.js) | ✓ | [resend.md](integrations/resend.md) |
 | sequenzy | Email | ✓ | ✓ | ✓ | - | [sequenzy.md](integrations/sequenzy.md) |
 | nitrosend | Email | ✓ | ✓ | - | - | [nitrosend.md](integrations/nitrosend.md) |
-| kit | Email | ✓ | - | [✓](clis/kit.js) | ✓ | [kit.md](integrations/kit.md) |
-| beehiiv | Newsletter | ✓ | - | [✓](clis/beehiiv.js) | - | [beehiiv.md](integrations/beehiiv.md) |
-| klaviyo | Email/SMS | ✓ | - | [✓](clis/klaviyo.js) | ✓ | [klaviyo.md](integrations/klaviyo.md) |
+| kit | Email | ✓ | ✓ | [✓](clis/kit.js) | ✓ | [kit.md](integrations/kit.md) |
+| beehiiv | Newsletter | ✓ | ✓ | [✓](clis/beehiiv.js) | - | [beehiiv.md](integrations/beehiiv.md) |
+| klaviyo | Email/SMS | ✓ | ✓ | [✓](clis/klaviyo.js) | ✓ | [klaviyo.md](integrations/klaviyo.md) |
 | postmark | Email | ✓ | - | [✓](clis/postmark.js) | ✓ | [postmark.md](integrations/postmark.md) |
-| brevo | Email/SMS | ✓ | - | [✓](clis/brevo.js) | ✓ | [brevo.md](integrations/brevo.md) |
-| activecampaign | Email/CRM | ✓ | - | [✓](clis/activecampaign.js) | ✓ | [activecampaign.md](integrations/activecampaign.md) |
-| twilio | SMS/Voice | ✓ | - | ✓ | ✓ | [twilio.md](integrations/twilio.md) |
+| brevo | Email/SMS | ✓ | ✓ | [✓](clis/brevo.js) | ✓ | [brevo.md](integrations/brevo.md) |
+| activecampaign | Email/CRM | ✓ | ✓ | [✓](clis/activecampaign.js) | ✓ | [activecampaign.md](integrations/activecampaign.md) |
+| twilio | SMS/Voice | ✓ | ✓ | ✓ | ✓ | [twilio.md](integrations/twilio.md) |
 | plivo | SMS/Voice | ✓ | - | - | ✓ | [plivo.md](integrations/plivo.md) |
 | postscript | SMS | ✓ | - | - | - | [postscript.md](integrations/postscript.md) |
-| attentive | SMS | ✓ | - | - | - | [attentive.md](integrations/attentive.md) |
+| attentive | SMS | ✓ | ✓ | - | - | [attentive.md](integrations/attentive.md) |
 | audiencetap | SMS/Email | ✓ | - | - | - | [audiencetap.md](integrations/audiencetap.md) |
 | hunter | Email Outreach | ✓ | ✓ | [✓](clis/hunter.js) | - | [hunter.md](integrations/hunter.md) |
 | snov | Email Outreach | ✓ | - | [✓](clis/snov.js) | - | [snov.md](integrations/snov.md) |
 | truelist | Email Verification | ✓ | ✓ | [✓](clis/truelist.js) | ✓ | [truelist.md](integrations/truelist.md) |
+| precleared | Email Compliance | ✓ | ✓ | - | - | [precleared.md](integrations/precleared.md) |
 | github | Developer Intent | ✓ | - | [✓](clis/github-prospects.js) | ✓ | [github.md](integrations/github.md) |
 | firecrawl | Site Scraping & AI Search | ✓ | ✓ | [✓](clis/firecrawl.js) | ✓ | [firecrawl.md](integrations/firecrawl.md) |
 | browserbase | Site Scraping | ✓ | ✓ | - | ✓ | [browserbase.md](integrations/browserbase.md) |
@@ -98,22 +107,23 @@ Anyone — including tool makers and partners — may contribute content that na
 | lemlist | Email Outreach | ✓ | ✓ | [✓](clis/lemlist.js) | - | [lemlist.md](integrations/lemlist.md) |
 | instantly | Email Outreach | ✓ | ✓ | [✓](clis/instantly.js) | - | [instantly.md](integrations/instantly.md) |
 | google-ads | Ads | ✓ | ✓ | [✓](clis/google-ads.js) | ✓ | [google-ads.md](integrations/google-ads.md) |
-| meta-ads | Ads | ✓ | - | [✓](clis/meta-ads.js) | ✓ | [meta-ads.md](integrations/meta-ads.md) |
+| meta-ads | Ads | ✓ | ✓ | [✓](clis/meta-ads.js) | ✓ | [meta-ads.md](integrations/meta-ads.md) |
 | linkedin-ads | Ads | ✓ | - | [✓](clis/linkedin-ads.js) | - | [linkedin-ads.md](integrations/linkedin-ads.md) |
 | tiktok-ads | Ads | ✓ | - | [✓](clis/tiktok-ads.js) | ✓ | [tiktok-ads.md](integrations/tiktok-ads.md) |
 | zapier | Automation | ✓ | ✓ | [✓](clis/zapier.js) | ✓ | [zapier.md](integrations/zapier.md) |
 | hotjar | CRO | ✓ | - | [✓](clis/hotjar.js) | - | [hotjar.md](integrations/hotjar.md) |
-| optimizely | A/B Testing | ✓ | - | [✓](clis/optimizely.js) | ✓ | [optimizely.md](integrations/optimizely.md) |
+| optimizely | A/B Testing | ✓ | ✓ | [✓](clis/optimizely.js) | ✓ | [optimizely.md](integrations/optimizely.md) |
 | calendly | Scheduling | ✓ | ✓ | [✓](clis/calendly.js) | - | [calendly.md](integrations/calendly.md) |
-| savvycal | Scheduling | ✓ | - | [✓](clis/savvycal.js) | - | [savvycal.md](integrations/savvycal.md) |
-| typeform | Forms | ✓ | - | [✓](clis/typeform.js) | ✓ | [typeform.md](integrations/typeform.md) |
+| savvycal | Scheduling | ✓ | ✓ | [✓](clis/savvycal.js) | - | [savvycal.md](integrations/savvycal.md) |
+| typeform | Forms | ✓ | ✓ | [✓](clis/typeform.js) | ✓ | [typeform.md](integrations/typeform.md) |
 | intercom | Messaging | ✓ | - | [✓](clis/intercom.js) | ✓ | [intercom.md](integrations/intercom.md) |
 | outreach | Sales Engagement | ✓ | ✓ | [✓](clis/outreach.js) | - | [outreach.md](integrations/outreach.md) |
 | heyreach | LinkedIn Outreach | ✓ | ✓ | ✓ | - | [heyreach.md](integrations/heyreach.md) |
 | crossbeam | Partner Ecosystem | ✓ | ✓ | [✓](clis/crossbeam.js) | - | [crossbeam.md](integrations/crossbeam.md) |
 | introw | Partner Ecosystem | - | ✓ | - | - | [introw.md](integrations/introw.md) |
 | pendo | Product Analytics | ✓ | - | [✓](clis/pendo.js) | - | [pendo.md](integrations/pendo.md) |
-| similarweb | Competitive Intelligence | ✓ | - | [✓](clis/similarweb.js) | - | [similarweb.md](integrations/similarweb.md) |
+| similarweb | Competitive Intelligence | ✓ | ✓ | [✓](clis/similarweb.js) | - | [similarweb.md](integrations/similarweb.md) |
+| scrapecreators | Competitive Intelligence | ✓ | ✓ | ✓ | - | [scrapecreators.md](integrations/scrapecreators.md) |
 | exa | AI Search | ✓ | ✓ | [✓](clis/exa.js) | ✓ | [exa.md](integrations/exa.md) |
 | firehose | Competitive Intelligence | ✓ | - | - | - | [firehose.md](integrations/firehose.md) |
 | sparktoro | Audience Research | - | - | - | - | [sparktoro.md](integrations/sparktoro.md) |
@@ -121,7 +131,9 @@ Anyone — including tool makers and partners — may contribute content that na
 | theirstack | Hiring & Tech Signals | ✓ | ✓ | - | - | [theirstack.md](integrations/theirstack.md) |
 | gong | Revenue Intelligence | ✓ | - | - | - | [gong.md](integrations/gong.md) |
 | airops | AI Content | ✓ | - | [✓](clis/airops.js) | - | [airops.md](integrations/airops.md) |
-| buffer | Social | ✓ | - | [✓](clis/buffer.js) | - | [buffer.md](integrations/buffer.md) |
+| admakeai | AI Content | ✓ | ✓ | - | - | [admakeai.md](integrations/admakeai.md) |
+| buffer | Social | ✓ | ✓ | [✓](clis/buffer.js) | - | [buffer.md](integrations/buffer.md) |
+| post-bridge | Social | ✓ | ✓ | ✓ | - | [post-bridge.md](integrations/post-bridge.md) |
 | wistia | Video | ✓ | - | [✓](clis/wistia.js) | - | [wistia.md](integrations/wistia.md) |
 | heygen | Video | ✓ | ✓ | - | ✓ | [heygen.md](integrations/heygen.md) |
 | hyperframes | Video | - | - | ✓ | ✓ | [hyperframes.md](integrations/hyperframes.md) |
@@ -129,10 +141,10 @@ Anyone — including tool makers and partners — may contribute content that na
 | g2 | Reviews | ✓ | - | [✓](clis/g2.js) | - | [g2.md](integrations/g2.md) |
 | onesignal | Push | ✓ | - | [✓](clis/onesignal.js) | ✓ | [onesignal.md](integrations/onesignal.md) |
 | demio | Webinar | ✓ | - | [✓](clis/demio.js) | - | [demio.md](integrations/demio.md) |
-| livestorm | Webinar | ✓ | - | [✓](clis/livestorm.js) | - | [livestorm.md](integrations/livestorm.md) |
+| ◆ livestorm | Webinar | ✓ | ✓ | [✓](clis/livestorm.js) | - | [livestorm.md](integrations/livestorm.md) |
 | shopify | Commerce | ✓ | - | ✓ | ✓ | [shopify.md](integrations/shopify.md) |
 | wordpress | CMS | ✓ | - | ✓ | ✓ | [wordpress.md](integrations/wordpress.md) |
-| webflow | CMS | ✓ | - | ✓ | ✓ | [webflow.md](integrations/webflow.md) |
+| webflow | CMS | ✓ | ✓ | ✓ | ✓ | [webflow.md](integrations/webflow.md) |
 | sanity | Headless CMS | ✓ | - | ✓ | ✓ | [sanity.md](integrations/sanity.md) |
 | contentful | Headless CMS | ✓ | - | ✓ | ✓ | [contentful.md](integrations/contentful.md) |
 | strapi | Headless CMS | ✓ | - | ✓ | ✓ | [strapi.md](integrations/strapi.md) |
@@ -151,9 +163,9 @@ Track user behavior, measure conversions, and analyze marketing performance.
 | Tool | Best For | MCP Available |
 |------|----------|:-------------:|
 | **ga4** | Web analytics, Google ecosystem | ✓ |
-| **mixpanel** | Product analytics, event tracking | - |
-| **amplitude** | Product analytics, cohort analysis | - |
-| **posthog** | Open-source analytics, session replay | - |
+| **mixpanel** | Product analytics, event tracking | ✓ |
+| **amplitude** | Product analytics, cohort analysis | ✓ |
+| **posthog** | Open-source analytics, session replay | ✓ |
 | **segment** | Customer data platform, routing | - |
 | **adobe-analytics** | Enterprise analytics | - |
 | **plausible** | Privacy-focused analytics | - |
@@ -167,8 +179,8 @@ Search engine optimization tools for keyword research, rank tracking, and site a
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **google-search-console** | Free, authoritative search data | Direct from Google |
-| **semrush** | Competitive analysis, keyword research | Comprehensive |
-| **ahrefs** | Backlink analysis, content research | Best for links |
+| **semrush** | Competitive analysis, keyword research | MCP available |
+| **ahrefs** | Backlink analysis, content research | MCP available |
 | **dataforseo** | SERP tracking, backlinks, on-page audits | Comprehensive API |
 | **keywords-everywhere** | Quick keyword research, traffic estimates | Credit-based |
 | **rankparse** | Cheap, agent-friendly backlinks + domain data | Credit-based, MCP available |
@@ -196,8 +208,9 @@ Payment processing and subscription management.
 |------|----------|:-------------:|
 | **stripe** | SaaS subscriptions, developer-friendly | ✓ |
 | **paddle** | SaaS billing with tax handling | - |
+| **agentaos** | Merchant of record for individuals and companies, local payouts in 85 countries | ✓ |
 
-**Agent recommendation**: Stripe is the default for SaaS. Paddle for built-in tax compliance.
+**Agent recommendation**: Stripe for developer-first SaaS billing. Paddle for built-in tax compliance (merchant of record).
 
 ### Referral & Affiliate
 
@@ -220,16 +233,16 @@ Email marketing, transactional email, and automation platforms.
 | Tool | Best For | MCP Available |
 |------|----------|:-------------:|
 | **mailchimp** | SMB email marketing | ✓ |
-| **customer-io** | Behavior-based messaging | - |
+| **customer-io** | Behavior-based messaging | ✓ |
 | **sendgrid** | Transactional email at scale | - |
 | **resend** | Developer-friendly transactional | ✓ |
 | **sequenzy** | Lifecycle email, sequences, transactional email | ✓ |
-| **kit** | Creator/newsletter focused | - |
-| **beehiiv** | Newsletter platform | - |
-| **klaviyo** | E-commerce email + SMS | - |
+| **kit** | Creator/newsletter focused | ✓ |
+| **beehiiv** | Newsletter platform | ✓ |
+| **klaviyo** | E-commerce email + SMS | ✓ |
 | **postmark** | Deliverability-focused transactional | - |
-| **brevo** | Email + SMS, popular in EU | - |
-| **activecampaign** | Email automation + CRM | - |
+| **brevo** | Email + SMS, popular in EU | ✓ |
+| **activecampaign** | Email automation + CRM | ✓ |
 
 **Agent recommendation**: Resend for transactional (dev-friendly). Sequenzy for lifecycle email, sequences, and agent-driven email marketing. Postmark for deliverability. Customer.io for advanced automation. Kit for creators. Beehiiv for newsletters. Klaviyo for e-commerce email/SMS. ActiveCampaign for email + CRM combo.
 
@@ -239,14 +252,14 @@ SMS and MMS marketing platforms and programmable messaging APIs.
 
 | Tool | Best For | MCP Available |
 |------|----------|:-------------:|
-| **klaviyo** | DTC ecom already on Klaviyo email | - |
+| **klaviyo** | DTC ecom already on Klaviyo email | ✓ |
 | **postscript** | Shopify DTC, SMS-first depth | - |
-| **attentive** | Mid-market+ DTC, full-service | - |
-| **twilio** | Custom API builds, transactional, dev-first | - |
+| **attentive** | Mid-market+ DTC, full-service | ✓ |
+| **twilio** | Custom API builds, transactional, dev-first | ✓ |
 | **plivo** | Twilio alternative, lower per-send cost | - |
 | **audiencetap** | DTC with AI-forward creative + on-pack QR opt-in | - |
-| **brevo** | EU SMB email + SMS combo | - |
-| **customer-io** | Behavior-based SMS automation | - |
+| **brevo** | EU SMB email + SMS combo | ✓ |
+| **customer-io** | Behavior-based SMS automation | ✓ |
 
 **Agent recommendation**: Klaviyo SMS for ecom already on Klaviyo email. Postscript for Shopify-first depth. Attentive for mid-market+ wanting concierge support. Twilio (or Plivo for lower cost) for custom builds and transactional/auth. AudienceTap when AI creative or on-pack QR opt-in matters.
 
@@ -257,7 +270,7 @@ Paid advertising platforms and campaign management.
 | Tool | Best For | MCP Available |
 |------|----------|:-------------:|
 | **google-ads** | Search intent, high-intent traffic | ✓ |
-| **meta-ads** | Demand gen, visual products, B2C | - |
+| **meta-ads** | Demand gen, visual products, B2C | ✓ |
 | **linkedin-ads** | B2B, job title targeting | - |
 | **tiktok-ads** | Younger demographics, video | - |
 
@@ -280,7 +293,7 @@ Conversion rate optimization, heatmaps, and experimentation.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **hotjar** | Heatmaps, recordings, surveys | Visual behavior data |
-| **optimizely** | A/B testing, feature flags | Enterprise experimentation |
+| **optimizely** | A/B testing, feature flags | MCP available |
 
 **Agent recommendation**: Hotjar for understanding user behavior. Optimizely for running experiments.
 
@@ -290,8 +303,8 @@ Booking and appointment scheduling tools.
 
 | Tool | Best For | Notes |
 |------|----------|-------|
-| **calendly** | Meeting scheduling, lead gen | Most popular |
-| **savvycal** | Personalized scheduling | Developer-friendly |
+| **calendly** | Meeting scheduling, lead gen | MCP available |
+| **savvycal** | Personalized scheduling | MCP available |
 
 **Agent recommendation**: Calendly for general use. SavvyCal for personalized booking experiences.
 
@@ -301,7 +314,7 @@ Form builders and survey platforms.
 
 | Tool | Best For | Notes |
 |------|----------|-------|
-| **typeform** | Interactive forms, surveys | Conversational UX |
+| **typeform** | Interactive forms, surveys | MCP available |
 
 **Agent recommendation**: Typeform for engaging forms and surveys.
 
@@ -322,8 +335,9 @@ Social media scheduling, management, and analytics.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **buffer** | Social scheduling, analytics | Multi-platform |
+| **post-bridge** | Scheduling one video to many accounts and platforms, per-post analytics | Short-form video focus; daily view snapshots |
 
-**Agent recommendation**: Buffer for scheduling and analytics across social platforms.
+**Agent recommendation**: Use the scheduler the user already has. Both schedule across platforms through an API and MCP.
 
 ### Video
 
@@ -349,8 +363,9 @@ Company and person data enrichment for sales and marketing.
 | **clay** | Waterfall enrichment, outbound | 75+ data providers |
 | **fullenrich** | Waterfall email + mobile finding | Many providers per lookup; charges only on a hit; verify its catch-all results |
 | **leadmagic** | Email finding, job changes, technographics, lookalikes | Credit-based API; charges only on a hit |
+| **rowbound** | Open-source Sheets enrichment, waterfalls | MIT · CLI + MCP · self-hosted/BYOK Clay alternative |
 
-**Agent recommendation**: Apollo for prospecting and outbound. Clearbit only if you already hold a legacy API key (otherwise Breeze Intelligence inside HubSpot). ZoomInfo for enterprise B2B data with intent signals. Clay for waterfall enrichment across multiple providers.
+**Agent recommendation**: Apollo for prospecting and outbound. Clearbit only if you already hold a legacy API key (otherwise Breeze Intelligence inside HubSpot). ZoomInfo for enterprise B2B data with intent signals. Clay for waterfall enrichment across multiple providers. Rowbound is the open-source, self-hosted alternative to Clay: native waterfalls from a Google Sheet, driven by CLI or MCP with your own provider keys.
 
 ### Email Verification
 
@@ -361,6 +376,16 @@ Pre-outreach email deliverability validation.
 | **truelist** | Bulk + single email verification, catch-all resolution | Returns `email_state` (ok / email_invalid / accept_all / risky / unknown) + `email_sub_state`. Batches with webhook + CSV results, `enhanced` strategy for catch-alls. Hosted OAuth MCP, CLI, 7-language SDKs. |
 
 **Agent recommendation**: Truelist for any prospect list before outreach — Apollo/ZoomInfo/Hunter data accuracy is typically 60–80%, validation is non-negotiable to keep sender reputation healthy.
+
+### Email Compliance
+
+Whether a cold or marketing email to a given recipient is allowed in their country (consent, sender identity and opt-out rules), as distinct from whether it will arrive.
+
+| Tool | Best For | Notes |
+|------|----------|-------|
+| **precleared** | Per-address permission check before the first cold email (UK, US, CA, DE, FR, AU, IE, NL) | Verdict, the rule quoted with its source, footer requirements, a signed receipt. Free daily allowance, API + MCP |
+
+**Agent recommendation**: Before the first cold email to anyone in the UK, Canada, Australia or Europe, settle whether consent is needed, either with a check like this or by hand against the official guidance linked in the guide. UK sole traders and German business addresses are the common traps. Deliverability verification (Truelist) answers a different question; do both.
 
 ### Developer Intent / GitHub
 
@@ -453,8 +478,11 @@ Traffic analytics, competitor benchmarking, and market research.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **similarweb** | Website traffic, competitor analysis | Traffic sources, keywords |
+| **scrapecreators** | Public social posts and ad libraries (TikTok, Instagram, YouTube, X, Reddit; Meta, Google, TikTok ads) | API + MCP; credit-based; not for LinkedIn or people data |
 
 **Agent recommendation**: Similarweb for competitor traffic analysis and market benchmarking.
+
+**Social and ad data**: ScrapeCreators and Apify social actors both cover what a competitor publishes and advertises; the reverse-engineer-marketing skill works with either.
 
 ### Audience Research
 
@@ -497,6 +525,17 @@ Sales conversation analytics, call recording, and deal intelligence.
 
 **Agent recommendation**: Gong for mining sales call transcripts for customer research, competitive intelligence, and coaching insights. Essential for revenue attribution and win/loss analysis.
 
+### AEO (Answer Engine Optimization)
+
+Answer engine optimization tools for AI visibility monitoring, competitor benchmarking, citation analysis, and content optimization.
+
+| Tool | Best For | Notes |
+|------|----------|-------|
+| **[omnia](integrations/omnia.md)** | AI visibility monitoring, prompt discovery, competitor benchmarking, citation analysis, and agent-assisted content optimization and outreach | REST API + OAuth MCP for data access; built-in agent for execution |
+| **[cloro](integrations/cloro.md)** | Raw answers and cited sources from ChatGPT, Google AI Mode, Bing AI Mode, and Gemini, and Google results with the AI Overview, per country | API (sync and async batch), hosted MCP, CLI; credit-based; no dashboard |
+
+**Agent note**: Omnia and cloro have integration guides here. Omnia is a monitoring platform with history and reports; cloro returns the raw answers and sources, and the agent does the counting. The ai-seo skill's monitoring tools table lists the alternatives (Otterly AI, Peec AI, ZipTie, LLMrefs, Profound, Ahrefs Brand Radar, Semrush) and a DIY method; choose on coverage and fit. With Omnia, use MCP for interactive analysis or the API for recurring reports; the built-in Omnia Agent handles content updates, publishing, and outreach with user approval.
+
 ### AI Content
 
 AI-powered content generation and optimization platforms.
@@ -504,6 +543,7 @@ AI-powered content generation and optimization platforms.
 | Tool | Best For | Notes |
 |------|----------|-------|
 | **airops** | AI content workflows, SEO content | Flow-based automation |
+| **admakeai** | Meta and TikTok ad images, UGC-style video ads, Meta Ad Library lookups | API + MCP; credit-based; publishes to Meta as paused drafts |
 
 **Agent recommendation**: AirOps for building AI content workflows that generate SEO-optimized content at scale.
 
@@ -598,6 +638,8 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **outreach** - Sales engagement sequences
 - **crossbeam** - Partner ecosystem data
 - **introw** - Partner relationship management
+- **omnia** - AI visibility, competitor mentions, and citation data (OAuth)
+- **cloro** - AI answers with cited sources, and Google results with the AI Overview
 - **exa** - AI-powered web search for LLMs and agents
 - **apollo** - B2B prospecting, enrichment, and sequences
 - **hubspot** - CRM read and write
@@ -608,25 +650,37 @@ These tools have Model Context Protocol servers available, enabling direct agent
 - **heyreach** - LinkedIn outreach (per-workspace MCP key)
 - **hunter** - Email finding and verification
 - **truelist** - Email verification and batches
+- **precleared** - Cold email permission check per address, with a signed receipt
 - **fullenrich** - Waterfall email and mobile enrichment
 - **leadmagic** - Enrichment, job changes, technographics
+- **rowbound** - Open-source Sheets enrichment with waterfalls (stdio MCP)
 - **theirstack** - Hiring and technographic signals
 - **apify** - Ready-made scrapers (Actors)
+- **scrapecreators** - Public social posts and ad libraries
 - **firecrawl** - Page scraping and crawling
 - **browserbase** - Cloud browser automation
 - **calendly** - Availability and booking links
+- **admakeai** - Ad images, UGC video ads and Meta Ad Library lookups
 
 To use MCP tools, ensure the appropriate MCP server is configured in your environment. Most hosted servers sign in with per-user OAuth, which suits interactive sessions; for scheduled or unattended agent runs, use the tool's API key (with the CLI or API, or an MCP that accepts a key header). MCP status checked 2026-10-07.
 
 ### Composio Integration
 
-[Composio](integrations/composio.md) provides managed OAuth and pre-built connectors for 500+ tools via a single MCP server. It adds MCP access to tools that don't have native MCP servers, including Salesforce, Meta Ads, LinkedIn Ads, Google Sheets, Slack, Notion, and more. (HubSpot now has its own official MCP server.)
+[Composio](integrations/composio.md) provides managed OAuth and pre-built connectors for 500+ tools via a single MCP server. It adds MCP access to tools that don't have native MCP servers, including Salesforce, LinkedIn Ads, Google Sheets, Slack, Notion, and more. (HubSpot and Meta Ads now have their own official MCP servers.)
 
 - **Setup**: `npx @composio/mcp@latest setup`
 - **Quick start**: See [tools/composio/README.md](composio/README.md)
 - **Marketing tool mapping**: See [tools/composio/marketing-tools.md](composio/marketing-tools.md)
 
 Use Composio when you need MCP access to OAuth-heavy tools. Prefer native MCP servers (GA4, Stripe, Mailchimp, etc.) when available — they have deeper coverage.
+
+### AIsa Data Access
+
+[◆ AIsa](integrations/aisa.md) offers access to supported SEO, search, social, and company-data providers through one account. Check operation coverage, account access, and pricing before choosing it alongside direct provider connections or manual exports. Its data access serves a different need from connecting existing SaaS accounts through Composio.
+
+- **Quick start**: [tools/aisa/README.md](aisa/README.md)
+- **Coverage and alternatives**: [tools/aisa/coverage-map.md](aisa/coverage-map.md)
+- **Evaluation scenarios**: [tools/aisa/evals/README.md](aisa/evals/README.md)
 
 ### Cogny Integration
 
@@ -673,10 +727,10 @@ Strategy, copy, cadence, and compliance live in the `prospecting` and `cold-emai
 | 1 | Build the account list | [apollo](integrations/apollo.md), [zoominfo](integrations/zoominfo.md), [clay](integrations/clay.md), [exa](integrations/exa.md) (lookalikes), [leadmagic](integrations/leadmagic.md) (lookalikes), [apify](integrations/apify.md) (public directories) | ✓ | ✓ |
 | 2 | Add buying signals | [theirstack](integrations/theirstack.md) (hiring, tech), [leadmagic](integrations/leadmagic.md) (job changes), [rb2b](integrations/rb2b.md) (site visitors), [github](integrations/github.md) (dev intent) | ✓ | ✓ (rb2b via Zapier) |
 | 3 | Find contacts and emails | [apollo](integrations/apollo.md), [fullenrich](integrations/fullenrich.md) (waterfall), [leadmagic](integrations/leadmagic.md), [hunter](integrations/hunter.md), [clay](integrations/clay.md) | ✓ | ✓ |
-| 4 | Verify before sending | [truelist](integrations/truelist.md) (catch-all resolution) | ✓ | ✓ |
+| 4 | Verify before sending | [truelist](integrations/truelist.md) (catch-all resolution), [precleared](integrations/precleared.md) (whether the email is allowed in the recipient's country) | ✓ | ✓ |
 | 5 | Send email sequences | [instantly](integrations/instantly.md), [lemlist](integrations/lemlist.md), [outreach](integrations/outreach.md) (enterprise) | ✓ | ✓ |
 | 6 | LinkedIn steps | [heyreach](integrations/heyreach.md), [lemlist](integrations/lemlist.md) (email + LinkedIn) | API | ✓ |
-| 7 | Book meetings | [calendly](integrations/calendly.md), [savvycal](integrations/savvycal.md) | ✓ | ✓ (calendly) |
+| 7 | Book meetings | [calendly](integrations/calendly.md), [savvycal](integrations/savvycal.md) | ✓ | ✓ |
 | 8 | Log in the CRM | [hubspot](integrations/hubspot.md), [attio](integrations/attio.md), [close](integrations/close.md), [salesforce](integrations/salesforce.md) | ✓ | ✓ (salesforce via [composio](integrations/composio.md)) |
 | 9 | Retarget target accounts | [linkedin-ads](integrations/linkedin-ads.md) (Matched Audiences) | ✓ | via composio |
 

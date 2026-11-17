@@ -15,6 +15,12 @@ from pathlib import Path, PurePosixPath
 DESCRIPTION_MAP = "scripts/claude-web-descriptions.json"
 SKILL_NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 EXCLUDED_PARTS = {"evals", "__pycache__", "node_modules", ".cache", ".DS_Store"}
+# Perplexity Computer custom skills: SKILL.md at the archive root, at most 100
+# files and 20 MB unzipped, description up to 1,024 characters (help center
+# article 13914413, checked 2026-10-27).
+PERPLEXITY_MAX_FILES = 100
+PERPLEXITY_MAX_BYTES = 20_000_000
+PERPLEXITY_MAX_DESCRIPTION = 1024
 
 
 def git(repo, *args):
@@ -90,6 +96,9 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
     license_entry = files.get("LICENSE")
     if not license_entry or license_entry[0] not in {"100644", "100755"}:
         raise ValueError("A tracked regular LICENSE file is required")
+    license_size = int(git(repo, "cat-file", "-s", license_entry[2]))
+    if license_size > max_bytes:
+        raise ValueError("Bundle exceeds the configured uncompressed size bound: LICENSE")
     license_data = git(repo, "cat-file", "blob", license_entry[2])
 
     overrides = {}
@@ -100,6 +109,8 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
         overrides = json.loads(raw_map)
         if not isinstance(overrides, dict):
             raise ValueError("Web descriptions must be a skill-keyed object")
+    elif target == "perplexity":
+        max_bytes = min(max_bytes, PERPLEXITY_MAX_BYTES)
     elif target != "source":
         raise ValueError(f"Unknown target: {target}")
 
@@ -109,6 +120,7 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
     for name in selected:
         prefix = f"skills/{name}/"
         resources = {}
+        source_bytes = license_size
         for path, (mode, kind, object_id) in files.items():
             if not path.startswith(prefix):
                 continue
@@ -122,7 +134,15 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
                 raise ValueError(f"Unsafe resource path: {path}")
             if mode not in {"100644", "100755"} or kind != "blob":
                 raise ValueError(f"Resource must be a tracked regular file: {path}")
-            resources[relative] = (git(repo, "cat-file", "blob", object_id), mode, path)
+            # SKILL.md may shrink when the web description is replaced; the
+            # final packaged-size check below accounts for its actual bytes.
+            if relative != "SKILL.md" or target != "claude-web":
+                source_bytes += int(git(repo, "cat-file", "-s", object_id))
+            if source_bytes > max_bytes:
+                raise ValueError(f"Bundle exceeds the configured uncompressed size bound: {name}")
+            resources[relative] = (object_id, mode, path)
+        resources = {relative: (git(repo, "cat-file", "blob", object_id), mode, path)
+                     for relative, (object_id, mode, path) in resources.items()}
         original = resources["SKILL.md"][0]
         fields = metadata(original)
         if fields["name"] != name:
@@ -144,7 +164,11 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
                     continue
                 raise ValueError(f"Stale web description; review changed source triggers: {name}")
             resources["SKILL.md"] = (replace_description(original, short), resources["SKILL.md"][1], prefix + "SKILL.md")
+        if target == "perplexity" and len(fields["description"]) > PERPLEXITY_MAX_DESCRIPTION:
+            raise ValueError(f"Description exceeds Perplexity's {PERPLEXITY_MAX_DESCRIPTION}-character limit: {name}")
         resources["LICENSE"] = (license_data, "100644", "LICENSE")
+        if target == "perplexity" and len(resources) > PERPLEXITY_MAX_FILES:
+            raise ValueError(f"Bundle exceeds Perplexity's {PERPLEXITY_MAX_FILES}-file limit: {name}")
         uncompressed_bytes = sum(len(item[0]) for item in resources.values())
         if uncompressed_bytes > max_bytes:
             raise ValueError(f"Bundle exceeds the configured uncompressed size bound: {name}")
@@ -152,7 +176,9 @@ def build(repo, output, target="source", skills=None, revision="HEAD", descripti
         inventory = []
         with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for relative, (data, mode, source_path) in sorted(resources.items()):
-                entry = zipfile.ZipInfo(f"{name}/{relative}", date_time=(1980, 1, 1, 0, 0, 0))
+                # Perplexity requires SKILL.md at the archive root; other targets nest one folder.
+                entry_path = relative if target == "perplexity" else f"{name}/{relative}"
+                entry = zipfile.ZipInfo(entry_path, date_time=(1980, 1, 1, 0, 0, 0))
                 entry.create_system = 3
                 entry.external_attr = (0o100755 if mode == "100755" else 0o100644) << 16
                 entry.compress_type = zipfile.ZIP_DEFLATED
@@ -178,7 +204,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parent.parent)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--target", choices=("source", "claude-web"), default="source")
+    parser.add_argument("--target", choices=("source", "claude-web", "perplexity"), default="source")
     parser.add_argument("--skill", action="append", help="Select one skill; repeat for several. Default: all.")
     parser.add_argument("--ref", default="HEAD", help="Frozen Git revision to package; default HEAD.")
     parser.add_argument("--web-descriptions", type=Path, help="Explicit local override map instead of the selected revision's map.")
